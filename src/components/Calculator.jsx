@@ -16,12 +16,12 @@ const Calculator = () => {
 
   const calculatePercent = (event) => {
     setPage(Math.round(event.target.value));
-    setPercent(Math.round((event.target.value / book.pageCount) * 100));
+    setPercent(Math.floor((event.target.value / book.pageCount) * 100));
   };
 
   const calculatePages = (event) => {
     setPercent(Math.round(event.target.value));
-    setPage(Math.round((event.target.value / 100) * book.pageCount));
+    setPage(Math.floor((event.target.value / 100) * book.pageCount));
   };
 
   return (
