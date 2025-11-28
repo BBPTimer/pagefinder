@@ -2,11 +2,16 @@ const Search = ({ setBookList }) => {
   const search = (event) => {
     event.preventDefault();
 
+    if(!event.target.search.value.trim()) {
+      alert("Must enter search term");
+      return;
+    }
+
     // Remove leading and trailing white space, and replace other white space with plus for API
-    test(event.target.search.value.trim().replaceAll(" ", "+"));
+    getSearchResults(event.target.search.value.trim().replaceAll(" ", "+"));
   };
 
-  const test = async (search) => {
+  const getSearchResults = async (search) => {
     let response = await fetch("https://www.googleapis.com/books/v1/volumes?q=" + search);
     let bookList = await response.json();
     setBookList(bookList.items);
