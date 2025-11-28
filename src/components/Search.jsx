@@ -2,6 +2,7 @@ const Search = ({ setBookList }) => {
   const search = (event) => {
     event.preventDefault();
 
+    // Remove leading and trailing white space, and replace other white space with plus for API
     test(event.target.search.value.trim().replaceAll(" ", "+"));
   };
 

@@ -1,7 +1,8 @@
 import Book from "../../classes/Book";
 
-const BookCard = ({ book, setBook }) => {
+const BookCard = ({ book, setBook, lastIndex }) => {
   const handleBookSelect = () => {
+    // Create new Book
     const selectedBook = new Book(
       book.volumeInfo.id,
       book.volumeInfo.title,
@@ -14,6 +15,7 @@ const BookCard = ({ book, setBook }) => {
 
     setBook(selectedBook);
 
+    // Add book to local storage
     localStorage.setItem("book", JSON.stringify(selectedBook));
   };
 
@@ -33,7 +35,7 @@ const BookCard = ({ book, setBook }) => {
       )}
       <br />
       <button onClick={handleBookSelect}>Select</button>
-      <hr />
+      {!lastIndex && <hr />}
     </>
   );
 };

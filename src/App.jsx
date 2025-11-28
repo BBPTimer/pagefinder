@@ -4,14 +4,17 @@ import BookCards from "./components/BookCards";
 import BookInfo from "./components/BookInfo";
 import Calculator from "./components/Calculator";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 
 function App() {
+  // Check if user has book in local storage
   const [book, setBook] = useState(
     JSON.parse(localStorage.getItem("book")) || null
   );
 
   const [bookList, setBookList] = useState([]);
 
+  // Conditionally render search or book info
   return book ? (
     <>
       <h1>PageFinder</h1>
@@ -19,6 +22,7 @@ function App() {
       <br />
       <br />
       <Calculator book={book} />
+      <Footer />
     </>
   ) : (
     <>
@@ -31,8 +35,8 @@ function App() {
       </p>
       <Search setBookList={setBookList} />
       <br />
-      <br />
       <BookCards bookList={bookList} setBook={setBook} />
+      <Footer />
     </>
   );
 }

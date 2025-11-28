@@ -1,8 +1,11 @@
 const BookInfo = ({ book, setBook, setBookList }) => {
   const handleResetButton = () => {
+    // Clear search results
     setBookList([]);
+    // Clear book
     setBook();
 
+    // Clear local storage
     localStorage.removeItem("book");
   }
 
