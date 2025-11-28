@@ -2,7 +2,7 @@ const Search = ({ setBookList }) => {
   const search = (event) => {
     event.preventDefault();
 
-    if(!event.target.search.value.trim()) {
+    if (!event.target.search.value.trim()) {
       alert("Must enter search term");
       return;
     }
@@ -12,7 +12,9 @@ const Search = ({ setBookList }) => {
   };
 
   const getSearchResults = async (search) => {
-    let response = await fetch("https://www.googleapis.com/books/v1/volumes?q=" + search);
+    let response = await fetch(
+      "https://www.googleapis.com/books/v1/volumes?q=" + search
+    );
     let bookList = await response.json();
     setBookList(bookList.items);
   };
@@ -20,7 +22,7 @@ const Search = ({ setBookList }) => {
   return (
     <>
       <form onSubmit={search}>
-        <input type="text" name="search"></input>
+        <input type="text" name="search"></input>{" "}
         <button type="submit">Search</button>
       </form>
     </>

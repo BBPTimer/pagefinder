@@ -13,7 +13,7 @@ const BookInfo = ({ book, setBook, setBookList }) => {
     <>
       Title: {book.title}
       <br />
-      Author(s): {book.authors}
+      Author(s): {book.authors && book.authors.join(", ")}
       <br />
       <br />
       <img src={book.thumbnail} />
