@@ -2,7 +2,7 @@ import BookCard from "./BookCards/BookCard";
 
 const BookCards = ({ bookList, setBook }) => {
   const bookCards = bookList.map((book) => (
-    <BookCard book={book} setBook={setBook} key={book.volumeInfo.id} />
+    <BookCard book={book} setBook={setBook} key={book.id} />
   ));
 
   return <>{bookCards}</>;

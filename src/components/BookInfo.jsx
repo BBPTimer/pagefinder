@@ -2,6 +2,8 @@ const BookInfo = ({ book, setBook, setBookList }) => {
   const handleResetButton = () => {
     setBookList([]);
     setBook();
+
+    localStorage.removeItem("book");
   }
 
   return (
