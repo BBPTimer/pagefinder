@@ -7,31 +7,23 @@ import Calculator from "./components/Calculator";
 import Search from "./components/Search";
 
 function App() {
-  const [book, setBook] = useState(
-    new Book(
-      "VswAEAAAQBAJ",
-      "A Court of Thorns and Roses",
-      ["Sarah J. Maas"],
-      9781526634245,
-      451,
-      "https://books.google.com/books/content?id=VswAEAAAQBAJ&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api"
-    )
-  );
+  const [book, setBook] = useState();
 
   const [bookList, setBookList] = useState([]);
 
-  return (
+  return book ? (
+    <>
+      <BookInfo book={book} setBook={setBook} setBookList={setBookList} />
+      <br />
+      <br />
+      <Calculator book={book} />
+    </>
+  ) : (
     <>
       <Search setBookList={setBookList} />
       <br />
       <br />
-      <BookCards bookList={bookList} setBook={setBook}/>
-      <br />
-      <br />
-      <BookInfo book={book} />
-      <br />
-      <br />
-      <Calculator book={book} />
+      <BookCards bookList={bookList} setBook={setBook} />
     </>
   );
 }

@@ -1,12 +1,19 @@
-const BookInfo = ({ book }) => {
+const BookInfo = ({ book, setBook, setBookList }) => {
+  const handleResetButton = () => {
+    setBookList([]);
+    setBook();
+  }
+
   return (
     <>
-      <img src={book.thumbnail} />
-      <br />
-      <br />
       Title: {book.title}
       <br />
       Author(s): {book.authors}
+      <br />
+      <br />
+      <img src={book.thumbnail} />
+      <br />
+      <button onClick={handleResetButton}>Search Again</button>
     </>
   );
 };
