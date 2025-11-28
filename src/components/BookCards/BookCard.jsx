@@ -1,4 +1,19 @@
+import Book from "../../classes/Book";
+
 const BookCard = ({ book, setBook }) => {
+  const handleBookSelect = () => {
+    setBook(
+      new Book(
+        book.volumeInfo.id,
+        book.volumeInfo.title,
+        book.volumeInfo.authors,
+        book.volumeInfo.industryIdentifiers[1].identifier,
+        book.volumeInfo.pageCount,
+        book.volumeInfo.imageLinks.thumbnail
+      )
+    );
+  };
+
   return (
     <>
       Title: {book.volumeInfo.title}
@@ -10,6 +25,8 @@ const BookCard = ({ book, setBook }) => {
       {book.volumeInfo.imageLinks && (
         <img src={book.volumeInfo.imageLinks.thumbnail} />
       )}
+      <br />
+      <button onClick={handleBookSelect}>Select</button>
       <hr />
     </>
   );
