@@ -11,9 +11,9 @@ const BookInfo = ({ book, setBook, setBookList }) => {
 
   return (
     <>
-      Title: {book.title}
+      <i>Title:</i> {book.title}
       <br />
-      Author(s): {book.authors && book.authors.join(", ")}
+      <i>Author(s):</i> {book.authors && book.authors.join(", ")}
       <br />
       <br />
       <img src={book.thumbnail} />
