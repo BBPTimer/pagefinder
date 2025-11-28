@@ -23,7 +23,7 @@ const Search = ({ setBookList }) => {
     <>
       <form onSubmit={search}>
         <input type="text" name="search"></input>{" "}
-        <button type="submit">Search</button>
+        <button>Search</button>
       </form>
     </>
   );
