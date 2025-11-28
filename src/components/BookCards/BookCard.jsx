@@ -7,9 +7,10 @@ const BookCard = ({ book, setBook }) => {
         book.volumeInfo.id,
         book.volumeInfo.title,
         book.volumeInfo.authors,
-        book.volumeInfo.industryIdentifiers[1].identifier,
         book.volumeInfo.pageCount,
-        book.volumeInfo.imageLinks.thumbnail
+        typeof book.volumeInfo.imageLinks === "undefined"
+          ? null
+          : book.volumeInfo.imageLinks.thumbnail
       )
     );
   };
