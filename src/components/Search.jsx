@@ -23,9 +23,10 @@ const Search = ({ setBookList }) => {
     <form onSubmit={search}>
       <input type="text" name="search"></input> <button>Search</button>
       <br />
-      <p className="x-small">
+      <br />
+      {/* <p className="x-small">
         Search by Title, Author, Publisher, Subject, or ISBN
-      </p>
+      </p> */}
     </form>
   );
 };
