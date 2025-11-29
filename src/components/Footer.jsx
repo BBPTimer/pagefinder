@@ -3,8 +3,13 @@ const Footer = () => {
     <>
       <br />
       <br />
-      <footer className="white-bg gray-hover">
+      <footer>
         &copy; {new Date().getFullYear()} Greg Weseloh LLC
+        <br />
+        <br />
+        <a href="https://github.com/BBPTimer/pagefinder/issues" target="top">
+          Issues or feature requests?
+        </a>
       </footer>
     </>
   );

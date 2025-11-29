@@ -34,7 +34,6 @@ function App() {
         Search for any book to get started!
       </p>
       <Search setBookList={setBookList} />
-      <br />
       <BookCards bookList={bookList} setBook={setBook} />
       <Footer />
     </>
