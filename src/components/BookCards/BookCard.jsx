@@ -21,11 +21,14 @@ const BookCard = ({ book, setBook, lastIndex }) => {
 
   return (
     <>
-      <i>Title:</i> {book.volumeInfo.title}
+      <i>Title: </i>
+      {book.volumeInfo.title}
       <br />
-      <i>Author(s):</i> {book.volumeInfo.authors && book.volumeInfo.authors.join(", ")}
+      <i>Author(s): </i>
+      {book.volumeInfo.authors && book.volumeInfo.authors.join(", ")}
       <br />
-      <i>Page Count:</i> {book.volumeInfo.pageCount}
+      <i>Page Count: </i>
+      {book.volumeInfo.pageCount}
       <br />
       <br />
       {book.volumeInfo.imageLinks && (

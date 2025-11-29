@@ -8,8 +8,16 @@ footer,
   font-size: x-small;
 }
 
+.small {
+  font-size: small;
+}
+
 a {
   color: black;
+}
+
+form {
+  display: inline;
 }
 
 input,
