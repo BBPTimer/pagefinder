@@ -13,6 +13,8 @@ const BookInfo = ({ book, setBook, setBookList }) => {
 
     // Update local storage
     localStorage.setItem("book", JSON.stringify(updatedBook));
+    localStorage.removeItem("page");
+    localStorage.removeItem("percent");
 
     // Close form
     setIsEditingPageCount(false);
@@ -26,7 +28,7 @@ const BookInfo = ({ book, setBook, setBookList }) => {
     setBook();
 
     // Clear local storage
-    localStorage.removeItem("book");
+    localStorage.clear();
   };
 
   return (
@@ -65,7 +67,9 @@ const BookInfo = ({ book, setBook, setBookList }) => {
       <br />
       <img src={book.thumbnail} />
       <br />
-      <button className="small" onClick={handleResetButton}>Search Again</button>
+      <button className="small" onClick={handleResetButton}>
+        Search Again
+      </button>
     </>
   );
 };

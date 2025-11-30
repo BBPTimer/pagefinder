@@ -3,8 +3,8 @@ import "./App.css";
 import BookCards from "./components/BookCards";
 import BookInfo from "./components/BookInfo";
 import Calculator from "./components/Calculator";
-import Search from "./components/Search";
 import Footer from "./components/Footer";
+import Search from "./components/Search";
 
 function App() {
   // Check if user has book in local storage

@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 const Calculator = ({ book }) => {
-  const [page, setPage] = useState("");
-  const [percent, setPercent] = useState("");
+  const [page, setPage] = useState(localStorage.getItem("page") || "");
+  const [percent, setPercent] = useState(localStorage.getItem("percent") || "");
 
   const clearInput = () => {
     setPage("");
@@ -27,36 +27,44 @@ const Calculator = ({ book }) => {
     }
   };
 
+  const handleSave = () => {
+    localStorage.setItem("page", page);
+    localStorage.setItem("percent", percent);
+  };
+
   return (
-    <b>
-      <label htmlFor="page">Page </label>
-      <input
-        type="number"
-        inputMode="numeric"
-        pattern="[0-9]*"
-        id="page"
-        name="page"
-        min="0"
-        max={book.pageCount}
-        value={page}
-        onChange={calculatePercent}
-      />
-      {" / "}
-      {book.pageCount}
-      {" pages = "}
-      <input
-        type="number"
-        inputMode="numeric"
-        pattern="[0-9]*"
-        id="percent"
-        name="percent"
-        min="0"
-        max="100"
-        value={percent}
-        onChange={calculatePages}
-      />
-      <label htmlFor="percent"> %</label>
-    </b>
+    <>
+      <b>
+        <label htmlFor="page">Page </label>
+        <input
+          type="number"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          id="page"
+          name="page"
+          min="0"
+          max={book.pageCount}
+          value={page}
+          onChange={calculatePercent}
+        />
+        {" / "}
+        {book.pageCount}
+        {" pages = "}
+        <input
+          type="number"
+          inputMode="numeric"
+          pattern="[0-9]*"
+          id="percent"
+          name="percent"
+          min="0"
+          max="100"
+          value={percent}
+          onChange={calculatePages}
+        />
+        <label htmlFor="percent"> %</label>
+      </b>{" "}
+      <button className="small" onClick={handleSave}>Save</button>
+    </>
   );
 };
 
