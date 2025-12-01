@@ -1,4 +1,9 @@
-const Search = ({ setBookList }) => {
+import { useContext } from "react";
+import { BookContext } from "../contexts/BookContext";
+
+const Search = () => {
+  const { setBookList } = useContext(BookContext);
+
   const search = (event) => {
     event.preventDefault();
 

@@ -1,6 +1,10 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { BookContext } from "../contexts/BookContext";
 
-const BookInfo = ({ book, setBook, setBookList }) => {
+const BookInfo = () => {
+  const { setPage, setPercent, book, setBook, setBookList } =
+    useContext(BookContext);
+
   const [isEditingPageCount, setIsEditingPageCount] = useState(false);
 
   const handleEditPageCount = (event) => {
@@ -10,6 +14,10 @@ const BookInfo = ({ book, setBook, setBookList }) => {
 
     // Update page count
     setBook(updatedBook);
+
+    // Reset page and percent
+    setPage("");
+    setPercent("");
 
     // Update local storage
     localStorage.setItem("book", JSON.stringify(updatedBook));

@@ -1,27 +1,23 @@
-import { useState } from "react";
+import { useContext } from "react";
 import "./App.css";
 import BookCards from "./components/BookCards";
 import BookInfo from "./components/BookInfo";
 import Calculator from "./components/Calculator";
 import Footer from "./components/Footer";
 import Search from "./components/Search";
+import { BookContext } from "./contexts/BookContext";
 
 function App() {
-  // Check if user has book in local storage
-  const [book, setBook] = useState(
-    JSON.parse(localStorage.getItem("book")) || null
-  );
-
-  const [bookList, setBookList] = useState([]);
+  const { book } = useContext(BookContext);
 
   // Conditionally render search or book info
   return book ? (
     <>
       <h1>PageFinder</h1>
-      <BookInfo book={book} setBook={setBook} setBookList={setBookList} />
+      <BookInfo />
       <br />
       <br />
-      <Calculator book={book} />
+      <Calculator />
       <Footer />
     </>
   ) : (
@@ -33,8 +29,8 @@ function App() {
         <br />
         Search for any book to get started!
       </p>
-      <Search setBookList={setBookList} />
-      <BookCards bookList={bookList} setBook={setBook} />
+      <Search />
+      <BookCards />
       <Footer />
     </>
   );

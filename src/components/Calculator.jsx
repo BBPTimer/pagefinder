@@ -1,8 +1,8 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { BookContext } from "../contexts/BookContext";
 
-const Calculator = ({ book }) => {
-  const [page, setPage] = useState(localStorage.getItem("page") || "");
-  const [percent, setPercent] = useState(localStorage.getItem("percent") || "");
+const Calculator = () => {
+  const { page, setPage, percent, setPercent, book } = useContext(BookContext);
 
   const clearInput = () => {
     setPage("");
@@ -63,7 +63,9 @@ const Calculator = ({ book }) => {
         />
         <label htmlFor="percent"> %</label>
       </b>{" "}
-      <button className="small" onClick={handleSave}>Save</button>
+      <button className="small" onClick={handleSave}>
+        Save
+      </button>
     </>
   );
 };

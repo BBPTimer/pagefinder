@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import Book from "../../classes/Book";
+import { BookContext } from "../../contexts/BookContext";
 
-const BookCard = ({ book, setBook, lastIndex }) => {
+const BookCard = ({ book, lastIndex }) => {
+  const { setBook } = useContext(BookContext);
+
   const handleBookSelect = () => {
     // Create new Book
     const selectedBook = new Book(
